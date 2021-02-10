@@ -9,9 +9,7 @@ const Layout = ({ children, title = 'Posts Portal' }) => {
         <title>{title} | Posts Portal</title>
       </Head>
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   )
 }

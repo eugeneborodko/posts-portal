@@ -10,7 +10,9 @@ const Posts = ({ posts }) => {
         <ul>
           {posts.map((post) => (
             <li key={post.id}>
-              <Link href={'/post/[id]'} as={`/post/${post.id}`}><a>{post.title}</a></Link>
+              <Link href={'/post/[id]'} as={`/post/${post.id}`}>
+                <a>{post.title}</a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -20,7 +22,7 @@ const Posts = ({ posts }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3001/api/get-content/posts')
+  const res = await fetch('http://localhost:3000/api/get-content/posts')
   const posts = await res.json()
 
   if (!posts) {
@@ -31,8 +33,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts
-    }
+      posts,
+    },
   }
 }
 
